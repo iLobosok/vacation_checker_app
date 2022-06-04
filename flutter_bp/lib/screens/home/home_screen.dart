@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bp/bloc/login/login_bloc.dart';
 import 'package:flutter_bp/bloc/news/bloc/news_bloc.dart';
+import 'package:flutter_bp/screens/home/home_screen_widget.dart';
 
 
 class MainScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class MainScreen extends StatelessWidget {
                     Future.delayed(const Duration(seconds: 3), () {});
                   }
                   if (state is NewsLoaded) {
-                    return Container(color: Colors.red,);
+                    return HomeScreenWidget(context);
                   } else {
                     return const Text("Error load news");
                   }

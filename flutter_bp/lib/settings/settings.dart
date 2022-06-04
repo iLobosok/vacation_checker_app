@@ -1,10 +1,10 @@
 class LoginService {
 }
 
-class NewsService {
+class HomeService {
 
 }
 
-class HomeService {
+class RequestService {
  
 }

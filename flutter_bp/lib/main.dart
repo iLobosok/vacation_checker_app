@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/bloc/login/login_bloc.dart';
 import 'package:flutter_bp/bloc/news/bloc/news_bloc.dart';
+import 'package:flutter_bp/bloc/request/bloc/request_bloc.dart';
 import 'package:flutter_bp/settings/settings.dart';
 import 'package:flutter_bp/bloc/bloc_observer.dart';
 
@@ -22,7 +23,7 @@ void main() {
               create: (context) => HomeService(),
             ),
             RepositoryProvider(
-              create: (context) => NewsService(),
+              create: (context) => RequestService(),
             ),
           ],
           child: MultiBlocProvider(
@@ -34,9 +35,9 @@ void main() {
               BlocProvider<NewsBloc>(
                 create: (BuildContext context) => NewsBloc()..add(NewsReading()),
               ),
-              // BlocProvider<LoginBloc>(
-              //   create: (BuildContext context) => LoginBloc(),
-              // ),
+              BlocProvider<RequestBloc>(
+                create: (BuildContext context) => RequestBloc()..add(RequestSend()),
+              ),
             ],
             child: const MyApp(),
           )),
