@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/home_screen.dart';
+import 'package:flutter_bp/screens/request/request_screen.dart';
 import 'widget_text_field.dart';
 
 
@@ -30,7 +31,7 @@ import 'widget_text_field.dart';
               child: InkWell(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const MainScreen()));
+                      builder: (context) => const RequestScreen()));
                 },
                 child: Container(
                   decoration: const BoxDecoration(
