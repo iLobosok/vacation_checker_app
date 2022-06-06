@@ -12,3 +12,10 @@ final names = [
   "Unit\nConverts",
   "Others"
 ];
+
+final pics = [
+  "check",
+  "miscellaneous_services_outlined",
+  "show_chart_rounded",
+  "attach_money",
+];
