@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/shortcuts_widget.dart';
+import 'package:flutter_bp/screens/request/request_form_widget.dart';
 import 'package:flutter_bp/screens/request/request_screen.dart';
 
 final titles = [
@@ -14,9 +15,10 @@ final subtitles = [
   "Here is list 3 subtitle"
 ];
 GotoRequest(BuildContext context) {
-  Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const RequestScreen()));
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const RequestScreen()));
 }
+
 Widget HomeScreenWidget(BuildContext context) {
   return Scaffold(
     body: Column(
@@ -97,43 +99,48 @@ Widget HomeScreenWidget(BuildContext context) {
             )),
         Padding(
           padding: EdgeInsets.only(top: 15),
-          child: Container(
-            height: 60,
-            width: 320,
-            child: ListView.builder(
-                itemCount: 4,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.only(left: 5, right: 10),
-                    child: InkWell(
-                      onTap: () {
-                          GotoRequest(context);
-                      },
-                      child: Container(
-                        height: 60,
-                        width: 60,
-                        decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(8)),
-                            gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [
-                                  Color(0xFF40E547),
-                                  Color(0xFF40C2BA),
-                                ])),
-                        child: Center(
-                            child: Column(
-                          children: [
-                            
-                            const Spacer(),
-                            Text(names[index]),
-                            ],
-                        )),
+          child: Expanded(
+            child: SizedBox(
+              height: 60,
+              width: 320,
+              child: ListView.builder(
+                  itemCount: 4,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.only(left: 5, right: 10),
+                      child: Expanded(
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: const BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xFF40E547),
+                                    Color(0xFF40C2BA),
+                                  ])),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                GotoRequest(context);
+                              },
+                              child: Column(
+                                children: [
+                                  Image.asset('assets/home/$index.png'),
+                                  const SizedBox(height: 25,),
+                                  Text(names[index]),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  );
-                }),
+                    );
+                  }),
+            ),
           ),
         ),
       ],

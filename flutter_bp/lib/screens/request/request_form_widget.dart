@@ -80,17 +80,24 @@ Widget RequestFormWidget(BuildContext context) {
                   child: SizedBox(
                     height: 30,
                     width: 300,
-                    child: DropdownButton(
-                      value: "Tokyo",
-                      items: [
-                        DropdownMenuItem(
-                            child: Text("New York"), value: "New York"),
-                        DropdownMenuItem(
-                          child: Text("Tokyo"),
-                          value: "Tokyo",
-                        )
-                      ],
-                      onChanged: (value) {},
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Color.fromARGB(255, 172, 167, 167),
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(8))),
+                      child: DropdownButton(
+                        value: "Tokyo",
+                        items: [
+                          DropdownMenuItem(
+                              child: Text("New York"), value: "New York"),
+                          DropdownMenuItem(
+                            child: Text("Tokyo"),
+                            value: "Tokyo",
+                          )
+                        ],
+                        onChanged: (value) {},
+                      ),
                     ),
                   ),
                 ),
@@ -109,17 +116,24 @@ Widget RequestFormWidget(BuildContext context) {
                 child: SizedBox(
                   height: 30,
                   width: 300,
-                  child: DropdownButton(
-                    value: "Tokyo",
-                    items: [
-                      DropdownMenuItem(
-                          child: Text("New York"), value: "New York"),
-                      DropdownMenuItem(
-                        child: Text("Tokyo"),
-                        value: "Tokyo",
-                      )
-                    ],
-                    onChanged: (value) {},
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 172, 167, 167),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                    child: DropdownButton(
+                      value: "Tokyo",
+                      items: [
+                        DropdownMenuItem(
+                            child: Text("New York"), value: "New York"),
+                        DropdownMenuItem(
+                          child: Text("Tokyo"),
+                          value: "Tokyo",
+                        )
+                      ],
+                      onChanged: (value) {},
+                    ),
                   ),
                 ),
               ),
@@ -150,17 +164,26 @@ Widget RequestFormWidget(BuildContext context) {
                 child: SizedBox(
                   height: 30,
                   width: 300,
-                  child: DropdownButton(
-                    value: "Tokyo",
-                    items: [
-                      DropdownMenuItem(
-                          child: Text("New York"), value: "New York"),
-                      DropdownMenuItem(
-                        child: Text("Tokyo"),
-                        value: "Tokyo",
-                      )
-                    ],
-                    onChanged: (value) {},
+                  child: Container(
+                    height: 50,
+                    width: 270,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Color.fromARGB(255, 172, 167, 167),
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                    child: DropdownButton(
+                      value: "Tokyo",
+                      items: [
+                        DropdownMenuItem(
+                            child: Text("New York"), value: "New York"),
+                        DropdownMenuItem(
+                          child: Text("Tokyo"),
+                          value: "Tokyo",
+                        )
+                      ],
+                      onChanged: (value) {},
+                    ),
                   ),
                 ),
               ),
