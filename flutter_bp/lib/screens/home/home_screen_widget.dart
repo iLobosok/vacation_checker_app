@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/shortcuts_widget.dart';
 import 'package:flutter_bp/screens/request/request_form_widget.dart';
 import 'package:flutter_bp/screens/request/request_screen.dart';
+import 'package:flutter_bp/screens/settings/settings_screen.dart';
 
 final titles = [
   "Protecting communities, one landmine at a time",
@@ -14,9 +15,14 @@ final subtitles = [
   "Here is list 2 subtitle",
   "Here is list 3 subtitle"
 ];
-GotoRequest(BuildContext context) {
+GoToRequest(BuildContext context) {
   Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => const RequestScreen()));
+}
+
+GoToSettings(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
 }
 
 Widget HomeScreenWidget(BuildContext context) {
@@ -35,17 +41,22 @@ Widget HomeScreenWidget(BuildContext context) {
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
             )),
-        const Padding(
+         Padding(
             padding: EdgeInsets.only(
               top: 24,
               right: 290,
             ),
-            child: Text(
-              'News',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22),
+            child: InkWell(
+              child: Text(
+                'News',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 22),
+              ),
+              onTap: () {
+                GoToSettings(context);
+              },
             )),
         SizedBox(
           height: 165,
@@ -54,7 +65,7 @@ Widget HomeScreenWidget(BuildContext context) {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 5, right: 5, top: 5),
+                  padding: EdgeInsets.only(left: 15, right: 5, top: 5),
                   child: Container(
                     height: 165,
                     width: 335,
@@ -99,22 +110,23 @@ Widget HomeScreenWidget(BuildContext context) {
             )),
         Padding(
           padding: EdgeInsets.only(top: 15),
-          child: Expanded(
-            child: SizedBox(
-              height: 60,
-              width: 320,
-              child: ListView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(left: 5, right: 10),
-                      child: Expanded(
-                        child: Container(
+          child: SizedBox(
+            height: 100,
+            width: 320,
+            child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 5, right: 10),
+                    child: Column(
+                      children: [
+                        Container(
                           height: 60,
                           width: 60,
                           decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
                               gradient: LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
@@ -125,22 +137,101 @@ Widget HomeScreenWidget(BuildContext context) {
                           child: Center(
                             child: InkWell(
                               onTap: () {
-                                GotoRequest(context);
+                                GoToRequest(context);
                               },
-                              child: Column(
-                                children: [
-                                  Image.asset('assets/home/$index.png'),
-                                  const SizedBox(height: 25,),
-                                  Text(names[index]),
-                                ],
-                              ),
+                              child: Image.asset('assets/home/$index.png'),
                             ),
                           ),
                         ),
-                      ),
-                    );
-                  }),
-            ),
+                        Text(name_list_first[index]),
+                      ],
+                    ),
+                  );
+                }),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 15),
+          child: SizedBox(
+            height: 100,
+            width: 320,
+            child: ListView.builder(
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 5, right: 10),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: const BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xFF40E547),
+                                    Color(0xFF40C2BA),
+                                  ])),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                GoToRequest(context);
+                              },
+                              child: Image.asset('assets/home/a$index.png'),
+                            ),
+                          ),
+                        ),
+                        Text(name_list_second[index]),
+                      ],
+                    ),
+                  );
+                }),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 15),
+          child: SizedBox(
+            height: 100,
+            width: 320,
+            child: ListView.builder(
+                itemCount: 2,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(left: 5, right: 10),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: const BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8)),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xFF40E547),
+                                    Color(0xFF40C2BA),
+                                  ])),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                GoToRequest(context);
+                              },
+                              child: Image.asset('assets/home/b$index.png'),
+                            ),
+                          ),
+                        ),
+                        Text(name_list_third[index]),
+                      ],
+                    ),
+                  );
+                }),
           ),
         ),
       ],

@@ -10,7 +10,6 @@ import 'package:flutter_bp/bloc/bloc_observer.dart';
 
 import 'screens/login/login_screen.dart';
 
-
 void main() {
   BlocOverrides.runZoned(() {
     runApp(
@@ -29,14 +28,15 @@ void main() {
           child: MultiBlocProvider(
             providers: [
               BlocProvider<LoginBloc>(
-                create: (BuildContext context) => LoginBloc()..add(LoginListen())
-                
-              ),
+                  create: (BuildContext context) =>
+                      LoginBloc()..add(LoginListen())),
               BlocProvider<NewsBloc>(
-                create: (BuildContext context) => NewsBloc()..add(NewsReading()),
+                create: (BuildContext context) =>
+                    NewsBloc()..add(NewsReading()),
               ),
               BlocProvider<RequestBloc>(
-                create: (BuildContext context) => RequestBloc()..add(RequestSend()),
+                create: (BuildContext context) =>
+                    RequestBloc()..add(RequestSend()),
               ),
             ],
             child: const MyApp(),

@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
-final names = [
-  "Vacation\nCheck",
+final name_list_first = [
+  "Vacation",
   "Marine",
-  "Credit Check",
+  "Credit",
   "My Details",
-  "Assign Chain",
-  "Search Details",
-  "Spec vs Cargo",
-  "Gifts and Entertaiments",
-  "Unit\nConverts",
-  "Others"
 ];
+
+final name_list_second = [
+  "Assign",
+  "Search",
+  "Specvs",
+  "Gifts",
+];
+
+final name_list_third = ["Unit\nConverts", "Others"];
 
 final pics = [
   "check",

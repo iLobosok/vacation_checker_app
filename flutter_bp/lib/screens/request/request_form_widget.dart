@@ -27,8 +27,8 @@ Widget RequestFormWidget(BuildContext context) {
       elevation: 0,
       leading: GestureDetector(
         onTap: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const MainScreen()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => MainScreen()));
         },
         child: const Padding(
           padding: const EdgeInsets.only(left: 3, top: 10),
