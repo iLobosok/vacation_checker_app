@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bp/screens/login/login_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   bool isSwitched = false;
@@ -83,11 +84,12 @@ class SettingsScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 80),
                       child: Switch(
                         value: isSwitched,
-                        activeColor: Colors.blue,
+                        activeColor: Colors.white,
                         activeTrackColor: Colors.green,
-                        inactiveThumbColor: Colors.redAccent,
-                        inactiveTrackColor: Colors.orange,
-                        onChanged: (bool value) {},
+                        inactiveThumbColor: Colors.white,
+                        inactiveTrackColor: Colors.grey,
+                        onChanged: (bool value) {
+                        },
                       ),
                     ),
                   ],
@@ -141,11 +143,16 @@ class SettingsScreen extends StatelessWidget {
                     color: Colors.black,
                     size: 30,
                   )),
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Text(
-                    "Sign Out",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
+              Padding(
+                  padding: const EdgeInsets.only(left: 10, top: 20),
+                  child: InkWell(
+                    onTap: () {
+                      LogOut(context);
+                    },
+                    child: const Text(
+                      "Sign Out",
+                      style: TextStyle(color: Colors.black, fontSize: 17),
+                    ),
                   )),
             ],
           ),
@@ -153,4 +160,11 @@ class SettingsScreen extends StatelessWidget {
       ),
     );
   }
+}
+LogOut(BuildContext context) {
+    Navigator.pop(context);
+   Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) {
+                                return const LoginScreen();
+                              }));
 }
