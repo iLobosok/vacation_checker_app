@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Center(
-            child: Container(
+            child: SizedBox(
               width: 200,
               height: 200,
               child: Image.asset('assets/login/splash_logo.png'),

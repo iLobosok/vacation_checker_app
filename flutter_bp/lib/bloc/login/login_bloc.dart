@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_bp/settings/settings.dart';
 import 'package:meta/meta.dart';
 
 part 'login_event.dart';
