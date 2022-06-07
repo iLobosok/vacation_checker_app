@@ -133,12 +133,12 @@ Widget HomeScreenWidget(BuildContext context) {
                         height: 60,
                         width: 60,
                         child: Stack(
-                            children: [
-                              ShortcutItem(context),
-                              Center(
-                                child: Image.asset('assets/home/a$index.png'),
-                              ),
-                            ],
+                          children: [
+                            ShortcutItem(context),
+                            Center(
+                              child: Image.asset('assets/home/a$index.png'),
+                            ),
+                          ],
                         ),
                       ),
                       Text(name_list_second[index]),
@@ -150,36 +150,60 @@ Widget HomeScreenWidget(BuildContext context) {
         Container(
           height: 100,
           width: 320,
-          child: ListView.builder(
-              itemCount: 2,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 5, right: 10),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 60,
-                        width: 60,
-                        child: InkWell(
-                          onTap: () {
-                            GoToSettings(context);
-                          },
-                          child: Stack(
-                            children: [
-                              ShortcutItem(context),
-                              Center(
-                                child: Image.asset('assets/home/b$index.png'),
-                              ),
-                            ],
-                          ),
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 5, right: 10),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: InkWell(
+                        onTap: () {
+                          GoToSettings(context);
+                        },
+                        child: Stack(
+                          children: [
+                            ShortcutItem2(context),
+                            Center(
+                              child: Image.asset('assets/home/b0.png'),
+                            ),
+                          ],
                         ),
                       ),
-                      Text(name_list_third[index]),
-                    ],
-                  ),
-                );
-              }),
+                    ),
+                    Text(name_list_third[0]),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 5, right: 10),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: InkWell(
+                        onTap: () {
+                          GoToSettings(context);
+                        },
+                        child: Stack(
+                          children: [
+                            ShortcutItem(context),
+                            Center(
+                              child: Image.asset('assets/home/b1.png'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(name_list_third[1]),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     ),

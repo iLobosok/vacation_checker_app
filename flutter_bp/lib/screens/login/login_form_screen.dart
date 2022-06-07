@@ -13,8 +13,11 @@ Widget LoginWidgetForm(BuildContext context) {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Column(children: [
-          Center(
-            child: Image.asset('assets/login/login_screen_logo.png'),
+          Padding(
+            padding: const EdgeInsets.only(top: 50),
+            child: Center(
+              child: Image.asset('assets/login/login_screen_logo.png'),
+            ),
           ),
           //added widget with fields for flexibility
           Padding(
@@ -31,30 +34,33 @@ Widget LoginWidgetForm(BuildContext context) {
                 Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => MainScreen()));
               },
-              child: Container(
-                decoration: BoxDecoration(
-                    color: const Color(0xFF99CC00),
-                    border: Border.all(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                    ),
-                    borderRadius: const BorderRadius.all(Radius.circular(8))),
-
-                height: 46,
-                width: 315,
-                // ignore: prefer_const_literals_to_create_immutables
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF99CC00),
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 255, 255, 255),
+                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(8))),
+              
+                  height: 46,
+                  width: 315,
                   // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    const Text(
-                      'Login',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    const Icon(
-                      Icons.arrow_right_alt,
-                      color: Colors.white,
-                    ),
-                  ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      const Icon(
+                        Icons.arrow_right_alt,
+                        color: Colors.white,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -62,3 +62,17 @@ Widget ShortcutItem(BuildContext context) {
             ])),
   );
 }
+Widget ShortcutItem2(BuildContext context) {
+  return Container(
+    decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+        gradient: LinearGradient(
+            begin: Alignment.bottomLeft,
+            end: Alignment.topRight,
+            colors: [
+              Color.fromARGB(255, 209, 248, 229),
+              Color.fromARGB(255, 203, 248, 226),
+            ])),
+  );
+}
+
