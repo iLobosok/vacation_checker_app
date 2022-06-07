@@ -9,7 +9,7 @@ Widget HomeScreenWidget(BuildContext context) {
       children: [
         const Padding(
             padding: EdgeInsets.only(
-              top: 54,
+              top: 43,
               right: 155,
             ),
             child: Text(
@@ -21,7 +21,7 @@ Widget HomeScreenWidget(BuildContext context) {
             )),
         const Padding(
           padding: EdgeInsets.only(
-            top: 24,
+            top: 20,
             right: 290,
           ),
           child: Text(
@@ -38,13 +38,13 @@ Widget HomeScreenWidget(BuildContext context) {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 5, top: 5),
+                  padding: const EdgeInsets.only(left: 20, right: 6, top: 20),
                   child: Container(
                     height: 165,
                     width: 335,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 223, 227, 228),
-                      borderRadius: BorderRadius.all(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF738C99).withOpacity(0.1),
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(8),
                       ),
                     ),
@@ -70,163 +70,26 @@ Widget HomeScreenWidget(BuildContext context) {
               }),
         ),
         const Padding(
-            padding: EdgeInsets.only(
-              top: 24,
-              right: 250,
-            ),
-            child: Text(
-              'Shortcuts',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22),
-            )),
-        Padding(
-          padding: const EdgeInsets.only(top: 15),
-          child: Container(
-            height: 100,
-            width: 320,
-            child: ListView.builder(
-                itemCount: 4,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 10),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 60,
-                          width: 60,
-                          child: InkWell(
-                            onTap: () {
-                              GoToRequest(context);
-                            },
-                            child: Stack(
-                              children: [
-                                ShortcutItem(context),
-                                Center(
-                                  child: Image.asset('assets/home/$index.png'),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Text(name_list_first[index]),
-                      ],
-                    ),
-                  );
-                }),
+          padding: EdgeInsets.only(
+            top: 30,
+            right: 240,
+          ),
+          child: Text(
+            'Shortcuts',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w700, fontSize: 22),
           ),
         ),
-        Container(
-          height: 100,
-          width: 320,
-          child: ListView.builder(
-              itemCount: 4,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-              return index == 3 ? Padding(
-                padding: const EdgeInsets.only(left: 5, right: 10),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: InkWell(
-                        onTap: () {
-                          GoToSettings(context);
-                        },
-                        child: Stack(
-                          children: [
-                            ShortcutItem2(context),
-                            Center(
-                              child: Image.asset('assets/home/a3.png'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text(name_list_second[3]),
-                  ],
-                ),
-              )  :  Padding(
-                  padding: const EdgeInsets.only(left: 5, right: 10),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 60,
-                        width: 60,
-                        child: Stack(
-                          children: [
-                            ShortcutItem(context),
-                            Center(
-                              child: Image.asset('assets/home/a$index.png'),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text(name_list_second[index]),
-                    ],
-                  ),
-                );
-              }),
-        ),
-        Container(
-          height: 100,
-          width: 320,
-          child: Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 10),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: InkWell(
-                        onTap: () {
-                          GoToSettings(context);
-                        },
-                        child: Stack(
-                          children: [
-                            ShortcutItem2(context),
-                            Center(
-                              child: Image.asset('assets/home/b0.png'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text(name_list_third[0]),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 5, right: 10),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 60,
-                      width: 60,
-                      child: InkWell(
-                        onTap: () {
-                          GoToSettings(context);
-                        },
-                        child: Stack(
-                          children: [
-                            ShortcutItem(context),
-                            Center(
-                              child: Image.asset('assets/home/b1.png'),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Text(name_list_third[1]),
-                  ],
-                ),
-              ),
-            ],
+        SizedBox(
+          height: 330,
+          width: MediaQuery.of(context).size.width*1,
+          child: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 30,
+            crossAxisCount: 4,
+            children: shortcutList,
           ),
         ),
       ],

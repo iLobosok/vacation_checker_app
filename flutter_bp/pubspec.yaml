@@ -59,12 +59,12 @@ flutter:
     - assets/home/1.png
     - assets/home/2.png
     - assets/home/3.png
-    - assets/home/a0.png
-    - assets/home/a1.png
-    - assets/home/a2.png
-    - assets/home/a3.png
-    - assets/home/b0.png
-    - assets/home/b1.png
+    - assets/home/4.png
+    - assets/home/5.png
+    - assets/home/6.png
+    - assets/home/7.png
+    - assets/home/8.png
+    - assets/home/9.png
     - assets/home/settings_logo.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

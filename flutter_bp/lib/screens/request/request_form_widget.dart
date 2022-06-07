@@ -8,8 +8,7 @@ Widget RequestFormWidget(BuildContext context) {
       elevation: 0,
       leading: GestureDetector(
         onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => MainScreen()));
+          Navigator.pop(context);
         },
         child: const Padding(
           padding: EdgeInsets.only(left: 10, top: 10),
@@ -17,7 +16,7 @@ Widget RequestFormWidget(BuildContext context) {
             child: Text(
               'Cancel',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Color(0xFF314149),
                   fontSize: 15,
                   fontWeight: FontWeight.w400),
             ),
@@ -26,7 +25,7 @@ Widget RequestFormWidget(BuildContext context) {
       ),
     ),
     body: SingleChildScrollView(
-       physics: const BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
@@ -39,8 +38,8 @@ Widget RequestFormWidget(BuildContext context) {
                 "New Request",
                 style: TextStyle(
                     color: Colors.black,
-                    fontSize: 44,
-                    fontWeight: FontWeight.bold),
+                    fontSize: 40,
+                    fontWeight: FontWeight.w700),
               ),
             ),
           ),
@@ -49,7 +48,7 @@ Widget RequestFormWidget(BuildContext context) {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 10),
+                  padding: EdgeInsets.only(left: 20, top: 20),
                   child: Text(
                     "Ship Owner",
                     style: TextStyle(color: Colors.grey, fontSize: 17),
@@ -59,29 +58,32 @@ Widget RequestFormWidget(BuildContext context) {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Center(
-                  child: SizedBox(
-                    height: 35,
-                    width: MediaQuery.of(context).size.width * 0.95,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            color: const Color.fromARGB(255, 172, 167, 167),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: SizedBox(
+                      height: 34,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                              color: const Color(0xFF738C99).withOpacity(0.5),
+                            ),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(4))),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton(
+                            value: 'Select Counterparty',
+                            items: const [
+                              DropdownMenuItem(
+                                  child: Text("Select Counterparty"),
+                                  value: "Select Counterparty"),
+                              DropdownMenuItem(
+                                child: Text("Select Other"),
+                                value: "Select Other",
+                              )
+                            ],
+                            onChanged: (value) {},
                           ),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(4))),
-                      child: DropdownButtonHideUnderline(
-                        child: DropdownButton(
-                          value: 'Select Counterparty',
-                          items: const [
-                            DropdownMenuItem(
-                                child: Text("Select Counterparty"),
-                                value: "Select Counterparty"),
-                            DropdownMenuItem(
-                              child: Text("Select Other"),
-                              value: "Select Other",
-                            )
-                          ],
-                          onChanged: (value) {},
                         ),
                       ),
                     ),
@@ -91,7 +93,7 @@ Widget RequestFormWidget(BuildContext context) {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 10),
+                  padding: EdgeInsets.only(left: 20, top: 20),
                   child: Text(
                     "Vessel",
                     style: const TextStyle(color: Colors.grey, fontSize: 17),
@@ -101,11 +103,11 @@ Widget RequestFormWidget(BuildContext context) {
               Center(
                 child: SizedBox(
                   height: 35,
-                  width: MediaQuery.of(context).size.width * 0.95,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   child: Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: const Color.fromARGB(255, 172, 167, 167),
+                          color: const Color(0xFF738C99).withOpacity(0.5),
                         ),
                         borderRadius:
                             const BorderRadius.all(Radius.circular(8))),
@@ -130,7 +132,7 @@ Widget RequestFormWidget(BuildContext context) {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 50),
+                  padding: EdgeInsets.only(left: 20, top: 30),
                   child: Text(
                     "Grade",
                     style: TextStyle(
@@ -143,7 +145,7 @@ Widget RequestFormWidget(BuildContext context) {
               const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 15),
+                  padding: EdgeInsets.only(left: 20, top: 20),
                   child: Text(
                     "Grade",
                     style: TextStyle(color: Colors.grey, fontSize: 17),
@@ -151,31 +153,28 @@ Widget RequestFormWidget(BuildContext context) {
                 ),
               ),
               Center(
-                child: SizedBox(
-                  height: 35,
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  child: Container(
-                    height: 50,
-                    width: 270,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 172, 167, 167),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: SizedBox(
+                    height: 35,
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    child: Container(
+                      height: 50,
+                      width: 270,
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color(0xFF738C99).withOpacity(0.5),
+                          ),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8))),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: '',
+                          items: const [
+                            DropdownMenuItem(child: Text(''), value: ''),
+                          ],
+                          onChanged: (value) {},
                         ),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(8))),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                        value: "Select by Name or IMO",
-                        items: const [
-                          DropdownMenuItem(
-                              child: Text("Select by Name or IMO"),
-                              value: "Select by Name or IMO"),
-                          DropdownMenuItem(
-                            child: Text("Select by other categories"),
-                            value: "Select by other categories",
-                          )
-                        ],
-                        onChanged: (value) {},
                       ),
                     ),
                   ),
@@ -184,22 +183,22 @@ Widget RequestFormWidget(BuildContext context) {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 10),
+                    padding: const EdgeInsets.only(left: 20, top: 16),
                     child: Column(
                       children: [
                         const Text(
                           "Quantity",
                           style: TextStyle(
                               color: Colors.grey,
-                              fontSize: 17,
+                              fontSize: 14,
                               fontWeight: FontWeight.w400),
                         ),
                         Container(
-                          height: 35,
-                          width: 70,
+                          height: 34,
+                          width: 90,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: const Color.fromARGB(255, 172, 167, 167),
+                                color: const Color(0xFF738C99).withOpacity(0.5),
                               ),
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(4))),
@@ -224,7 +223,7 @@ Widget RequestFormWidget(BuildContext context) {
                     width: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 10),
+                    padding: const EdgeInsets.only(left: 8, top: 16),
                     child: Column(
                       children: [
                         const Padding(
@@ -233,16 +232,16 @@ Widget RequestFormWidget(BuildContext context) {
                             "Price",
                             style: TextStyle(
                                 color: Colors.grey,
-                                fontSize: 17,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w400),
                           ),
                         ),
                         Container(
-                          height: 35,
-                          width: 270,
+                          height: 34,
+                          width: 237,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: const Color.fromARGB(255, 172, 167, 167),
+                                color: const Color(0xFF738C99).withOpacity(0.5),
                               ),
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(4))),
@@ -273,15 +272,15 @@ Widget RequestFormWidget(BuildContext context) {
               height: 50,
               width: 370,
               decoration: const BoxDecoration(
-                  color: Colors.green,
+                  color: Color(0xFF009B00),
                   borderRadius: BorderRadius.all(Radius.circular(8))),
               child: const Center(
                   child: Text(
                 "Submit",
                 style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 17),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15),
               )),
             ),
           ),

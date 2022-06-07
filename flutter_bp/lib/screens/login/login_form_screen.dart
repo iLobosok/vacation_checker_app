@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/home_screen.dart';
+import 'package:flutter_bp/screens/request/request_form_widget.dart';
+import 'package:flutter_bp/screens/request/request_list_screen.dart';
 import 'widget_text_field.dart';
 
 Widget LoginWidgetForm(BuildContext context) {
@@ -14,36 +16,36 @@ Widget LoginWidgetForm(BuildContext context) {
         backgroundColor: Colors.transparent,
         body: Column(children: [
           Padding(
-            padding: const EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 62),
             child: Center(
               child: Image.asset('assets/login/login_screen_logo.png'),
             ),
           ),
           //added widget with fields for flexibility
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
             child: TextFieldCustom1(),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
             child: TextFieldCustom2(),
           ),
           Center(
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => MainScreen()));
+                    MaterialPageRoute(builder: (context) => RequestListWidget(context)));
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: const Color(0xFF99CC00),
+                      color: Colors.transparent,
                       border: Border.all(
-                        color: const Color.fromARGB(255, 255, 255, 255),
+                        color: Colors.white,
                       ),
                       borderRadius: const BorderRadius.all(Radius.circular(8))),
-              
+
                   height: 46,
                   width: 315,
                   // ignore: prefer_const_literals_to_create_immutables
@@ -68,10 +70,13 @@ Widget LoginWidgetForm(BuildContext context) {
 
           const Center(
             child: Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: EdgeInsets.only(top: 15),
               child: Text(
                 'Need help?',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
               ),
             ),
           ),

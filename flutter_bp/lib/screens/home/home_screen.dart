@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bp/bloc/news/bloc/news_bloc.dart';
 import 'package:flutter_bp/screens/home/home_screen_widget.dart';
+import 'package:flutter_bp/screens/home/shortcuts_widget.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -19,7 +20,7 @@ class MainScreen extends StatelessWidget {
             label: 'Settings',
           ),
         ],
-        
+        // onTap: ,
       ),
       body: Column(
         children: <Widget>[

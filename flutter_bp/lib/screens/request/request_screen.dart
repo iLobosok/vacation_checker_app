@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bp/bloc/request/bloc/request_bloc.dart';
+import 'package:flutter_bp/screens/request/request_list_screen.dart';
 import 'request_form_widget.dart';
 
 class RequestScreen extends StatelessWidget {
@@ -21,7 +22,8 @@ class RequestScreen extends StatelessWidget {
                     Future.delayed(const Duration(seconds: 3), () {});
                   }
                   if (state is RequestLoaded) {
-                    return RequestFormWidget(context);
+                    //Load our List of Requests
+                    return RequestListWidget(context);
                   } else {
                     return const Text("Error load news");
                   }
