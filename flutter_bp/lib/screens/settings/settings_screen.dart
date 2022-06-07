@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bp/screens/login/login_form_screen.dart';
 import 'package:flutter_bp/screens/login/login_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -8,163 +9,273 @@ class SettingsScreen extends StatelessWidget {
   SettingsScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    final bool _swichButton = false;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.house),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
-      ),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color(0xFF009B00),
-        title: const Center(
-            child: Text(
-          "Settings",
-          style: TextStyle(color: Colors.white, fontSize: 19),
-        )),
-      ),
       body: Column(
+        // ignore: prefer_const_literals_to_create_immutables
         children: [
-          Center(child: Image.asset('assets/home/settings_logo.png')),
-          const Center(
-            child: Text(
-              "BP One",
-              style: TextStyle(color: Color(0xFF009B00), fontSize: 25),
+          const Padding(
+            padding: EdgeInsets.only(
+              right: 205,
+              top: 43,
             ),
-          ),
-          const Center(
-            child: Text(
-              "Version: 1.0.0 Build: 2019123101",
+            // ignore: unnecessary_const
+            child: const Text(
+              'Settings',
               style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500),
+                  color: Color(0xFF19272E),
+                  fontSize: 40,
+                  fontWeight: FontWeight.w700),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(
+              top: 20,
+            ),
+            child: Center(
+              child: SizedBox(
+                height: 90,
+                width: 90,
+                child: Image.asset('assets/home/settings_logo.png'),
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 12),
+            child: Text(
+              'One IST',
+              style: TextStyle(
+                color: Color(0xFF009B00),
+                fontSize: 25,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 6),
+            child: Text(
+              'Vasilevich, Andrew (UNKNOW BUSINESS PARTNER)',
+              style: TextStyle(
+                fontSize: 13,
+                color: Color(0xFF738C99),
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.only(top: 6),
+            child: Text(
+              'Version: 1.0.0 Build: 2019123101',
+              style: TextStyle(
+                fontSize: 13,
+                color: Color(0xFF738C99),
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 30,
+            ),
             child: Column(
               children: [
                 Row(
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    const Padding(
-                        padding: EdgeInsets.only(left: 10, top: 20),
-                        child: Icon(
-                          Icons.phone_iphone,
-                          color: Colors.black,
-                          size: 30,
-                        )),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10, top: 20),
-                      child: Column(
-                        children: const [
-                          Padding(
-                              padding: EdgeInsets.only(right: 30),
-                              child: Text(
-                                "Keep Screen Awake",
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 17),
-                              )),
-                          Text(
-                            "Enabling this option to prevent \nphone from auto-lock",
-                            style: TextStyle(color: Colors.grey, fontSize: 13),
-                          ),
-                        ],
+                      padding: const EdgeInsets.only(left: 21),
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset(
+                          'assets/settings/faceid.png',
+                          color: const Color(0xFF314149),
+                        ),
                       ),
                     ),
+                    Column(
+                      children: const [
+                        SizedBox(
+                          width: 181,
+                          child: Align(
+                            alignment: Alignment(-0.7, 0),
+                            child: Text(
+                              'Face ID',
+                              style: TextStyle(
+                                  color: Color(0xFF314149),
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20),
+                          child: Text(
+                            'Enabling this option to prevent \nphone from auto-lock',
+                            style: TextStyle(
+                                color: Color(0xFF314149),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                      ],
+                    ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 80),
+                      padding: const EdgeInsets.only(left: 53),
                       child: Switch(
-                        value: isSwitched,
-                        activeColor: Colors.white,
-                        activeTrackColor: Colors.green,
-                        inactiveThumbColor: Colors.white,
-                        inactiveTrackColor: Colors.grey,
-                        onChanged: (bool value) {
+                        activeColor: Colors.pinkAccent,
+                        onChanged: (value) {
+                          print("VALUE : $value");
                         },
+                        value: _swichButton,
                       ),
                     ),
                   ],
                 ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 21,
+                        top: 42,
+                      ),
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset(
+                          'assets/settings/support.png',
+                          color: const Color(0xFF314149),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        left: 21.68,
+                        top: 40,
+                      ),
+                      child: Text(
+                        'Help & Support',
+                        style: TextStyle(
+                            color: Color(0xFF314149),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 21,
+                        top: 42,
+                      ),
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset(
+                          'assets/settings/about.png',
+                          color: const Color(0xFF314149),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        left: 21.68,
+                        top: 40,
+                      ),
+                      child: Text(
+                        'About ONE IST',
+                        style: TextStyle(
+                            color: Color(0xFF314149),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 21,
+                        top: 42,
+                      ),
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: Image.asset(
+                          'assets/settings/info.png',
+                          color: const Color(0xFF314149),
+                        ),
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        left: 21.68,
+                        top: 40,
+                      ),
+                      child: Text(
+                        'Share',
+                        style: TextStyle(
+                            color: Color(0xFF314149),
+                            fontSize: 17,
+                            fontWeight: FontWeight.w400),
+                      ),
+                    ),
+                  ],
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => LoginWidgetForm(context),
+                  ),
+                );
+                  },
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 21,
+                          top: 42,
+                        ),
+                        child: SizedBox(
+                          height: 30,
+                          width: 30,
+                          child: Image.asset(
+                            'assets/settings/signout.png',
+                            color: const Color(0xFFEC374A),
+                          ),
+                        ),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(
+                          left: 21.68,
+                          top: 40,
+                        ),
+                        child: Text(
+                          'Sign out',
+                          style: TextStyle(
+                              color: Color(0xFFEC374A),
+                              fontSize: 17,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
-          ),
-          Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Icon(
-                    Icons.help_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  )),
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Text(
-                    "Help & Support",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
-                  )),
-            ],
-          ),
-          Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Icon(
-                    Icons.info_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  )),
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Text(
-                    "About BP One",
-                    style: TextStyle(color: Colors.black, fontSize: 17),
-                  )),
-            ],
-          ),
-          Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: Icon(
-                    Icons.power_settings_new_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  )),
-              Padding(
-                  padding: const EdgeInsets.only(left: 10, top: 20),
-                  child: InkWell(
-                    onTap: () {
-                      LogOut(context);
-                    },
-                    child: const Text(
-                      "Sign Out",
-                      style: TextStyle(color: Colors.black, fontSize: 17),
-                    ),
-                  )),
-            ],
-          ),
+          )
         ],
       ),
     );
   }
 }
+
 LogOut(BuildContext context) {
-    Navigator.pop(context);
-   Navigator.pushReplacement(context,
-                              MaterialPageRoute(builder: (context) {
-                                return const LoginScreen();
-                              }));
+  Navigator.pop(context);
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+    return const LoginScreen();
+  }));
 }

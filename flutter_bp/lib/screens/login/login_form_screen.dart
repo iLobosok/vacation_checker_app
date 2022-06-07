@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/home_screen.dart';
+import 'package:flutter_bp/screens/login/login_screen.dart';
 import 'package:flutter_bp/screens/request/request_form_widget.dart';
 import 'package:flutter_bp/screens/request/request_list_screen.dart';
+import 'package:flutter_bp/screens/settings/settings_screen.dart';
 import 'widget_text_field.dart';
 
 Widget LoginWidgetForm(BuildContext context) {
@@ -34,7 +36,10 @@ Widget LoginWidgetForm(BuildContext context) {
             child: InkWell(
               onTap: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => RequestListWidget(context)));
+                  MaterialPageRoute(
+                    builder: (context) => SettingsScreen(),
+                  ),
+                );
               },
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
