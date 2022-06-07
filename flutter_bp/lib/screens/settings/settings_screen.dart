@@ -1,25 +1,10 @@
 import 'package:flutter/material.dart';
 
-class SettingsScreen extends State {
+class SettingsScreen extends StatelessWidget {
   bool isSwitched = false;
   var textValue = 'Switch is OFF';
 
-  void toggleSwitch(bool value) {
-    if (isSwitched == false) {
-      setState(() {
-        isSwitched = true;
-        textValue = 'Switch Button is ON';
-      });
-      print('Switch Button is ON');
-    } else {
-      setState(() {
-        isSwitched = false;
-        textValue = 'Switch Button is OFF';
-      });
-      print('Switch Button is OFF');
-    }
-  }
-
+  SettingsScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +22,8 @@ class SettingsScreen extends State {
       ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFF009B00),
-        title: Center(
+        backgroundColor: const Color(0xFF009B00),
+        title: const Center(
             child: Text(
           "Settings",
           style: TextStyle(color: Colors.white, fontSize: 19),
@@ -47,13 +32,13 @@ class SettingsScreen extends State {
       body: Column(
         children: [
           Center(child: Image.asset('assets/home/settings_logo.png')),
-          Center(
+          const Center(
             child: Text(
               "BP One",
               style: TextStyle(color: Color(0xFF009B00), fontSize: 25),
             ),
           ),
-          Center(
+          const Center(
             child: Text(
               "Version: 1.0.0 Build: 2019123101",
               style: TextStyle(
@@ -62,48 +47,106 @@ class SettingsScreen extends State {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          Column(
-            children: [
-              Row(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  Padding(
-                      padding: EdgeInsets.only(left: 10, top: 20),
-                      child: Icon(
-                        Icons.phone_iphone,
-                        color: Colors.black,
-                        size: 30,
-                      )),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10, top: 20),
-                    child: Column(
-                      children: [
-                        Padding(
-                            padding: EdgeInsets.only(right: 25),
-                            child: Text(
-                              "Keep Screen Awake",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 17),
-                            )),
-                        Text(
-                          "Enabling this option to prevent \nphone from auto-lock",
-                          style: TextStyle(color: Colors.grey, fontSize: 13),
-                        ),
-                      ],
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Column(
+              children: [
+                Row(
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    const Padding(
+                        padding: EdgeInsets.only(left: 10, top: 20),
+                        child: Icon(
+                          Icons.phone_iphone,
+                          color: Colors.black,
+                          size: 30,
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10, top: 20),
+                      child: Column(
+                        children: const [
+                          Padding(
+                              padding: EdgeInsets.only(right: 30),
+                              child: Text(
+                                "Keep Screen Awake",
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 17),
+                              )),
+                          Text(
+                            "Enabling this option to prevent \nphone from auto-lock",
+                            style: TextStyle(color: Colors.grey, fontSize: 13),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Switch(
-                    onChanged: toggleSwitch,
-                    value: isSwitched,
-                    activeColor: Colors.blue,
-                    activeTrackColor: Colors.green,
-                    inactiveThumbColor: Colors.redAccent,
-                    inactiveTrackColor: Colors.orange,
-                  ),
-                ],
-              ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 80),
+                      child: Switch(
+                        value: isSwitched,
+                        activeColor: Colors.blue,
+                        activeTrackColor: Colors.green,
+                        inactiveThumbColor: Colors.redAccent,
+                        inactiveTrackColor: Colors.orange,
+                        onChanged: (bool value) {},
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Icon(
+                    Icons.help_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  )),
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Text(
+                    "Help & Support",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
+                  )),
+            ],
+          ),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Icon(
+                    Icons.info_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  )),
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Text(
+                    "About BP One",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
+                  )),
+            ],
+          ),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Icon(
+                    Icons.power_settings_new_rounded,
+                    color: Colors.black,
+                    size: 30,
+                  )),
+              const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 20),
+                  child: Text(
+                    "Sign Out",
+                    style: TextStyle(color: Colors.black, fontSize: 17),
+                  )),
             ],
           ),
         ],

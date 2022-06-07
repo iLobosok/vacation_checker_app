@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/shortcuts_widget.dart';
-import 'package:flutter_bp/screens/request/request_form_widget.dart';
 import 'package:flutter_bp/screens/request/request_screen.dart';
 import 'package:flutter_bp/screens/settings/settings_screen.dart';
 
@@ -15,6 +14,7 @@ final subtitles = [
   "Here is list 2 subtitle",
   "Here is list 3 subtitle"
 ];
+// ignore: non_constant_identifier_names
 GoToRequest(BuildContext context) {
   Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => const RequestScreen()));
@@ -41,23 +41,17 @@ Widget HomeScreenWidget(BuildContext context) {
                   fontWeight: FontWeight.w700,
                   fontSize: 40),
             )),
-         Padding(
-            padding: EdgeInsets.only(
-              top: 24,
-              right: 290,
-            ),
-            child: InkWell(
-              child: Text(
-                'News',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 22),
-              ),
-              onTap: () {
-                GoToSettings(context);
-              },
-            )),
+        const Padding(
+          padding: EdgeInsets.only(
+            top: 24,
+            right: 290,
+          ),
+          child: Text(
+            'News',
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.w700, fontSize: 22),
+          ),
+        ),
         SizedBox(
           height: 165,
           child: ListView.builder(
@@ -65,11 +59,11 @@ Widget HomeScreenWidget(BuildContext context) {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.only(left: 15, right: 5, top: 5),
+                  padding: const EdgeInsets.only(left: 15, right: 5, top: 5),
                   child: Container(
                     height: 165,
                     width: 335,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 223, 227, 228),
                       borderRadius: BorderRadius.all(
                         Radius.circular(8),
@@ -77,7 +71,7 @@ Widget HomeScreenWidget(BuildContext context) {
                     ),
                     child: ListTile(
                       title: Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 10),
                         child: Text(
                           titles[index],
                           style: const TextStyle(
@@ -85,7 +79,7 @@ Widget HomeScreenWidget(BuildContext context) {
                         ),
                       ),
                       subtitle: Padding(
-                        padding: EdgeInsets.only(top: 10),
+                        padding: const EdgeInsets.only(top: 10),
                         child: Text(
                           subtitles[index],
                           style: const TextStyle(color: Colors.black),
@@ -109,41 +103,40 @@ Widget HomeScreenWidget(BuildContext context) {
                   fontSize: 22),
             )),
         Padding(
-          padding: EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15),
           child: SizedBox(
-            height: 100,
+            height: 80,
             width: 320,
             child: ListView.builder(
                 itemCount: 4,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 5, right: 10),
-                    child: Column(
+                    padding: const EdgeInsets.only(left: 5, right: 10),
+                    child: Stack(
                       children: [
-                        Container(
+                        SizedBox(
                           height: 60,
                           width: 60,
-                          decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xFF40E547),
-                                    Color(0xFF40C2BA),
-                                  ])),
-                          child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                GoToRequest(context);
-                              },
-                              child: Image.asset('assets/home/$index.png'),
-                            ),
+                          child: InkWell(
+                            onTap: () {
+                              GoToRequest(context);
+                            },
+                            child: ShortcutItem(context),
                           ),
                         ),
-                        Text(name_list_first[index]),
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 17, bottom: 20),
+                            child: Image.asset('assets/home/$index.png'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 62,
+                          ),
+                          child: Text(name_list_first[index]),
+                        ),
                       ],
                     ),
                   );
@@ -151,7 +144,7 @@ Widget HomeScreenWidget(BuildContext context) {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15),
           child: SizedBox(
             height: 100,
             width: 320,
@@ -160,7 +153,7 @@ Widget HomeScreenWidget(BuildContext context) {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 5, right: 10),
+                    padding: const EdgeInsets.only(left: 5, right: 10),
                     child: Column(
                       children: [
                         Container(
@@ -177,12 +170,7 @@ Widget HomeScreenWidget(BuildContext context) {
                                     Color(0xFF40C2BA),
                                   ])),
                           child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                GoToRequest(context);
-                              },
-                              child: Image.asset('assets/home/a$index.png'),
-                            ),
+                            child: Image.asset('assets/home/a$index.png'),
                           ),
                         ),
                         Text(name_list_second[index]),
@@ -193,7 +181,7 @@ Widget HomeScreenWidget(BuildContext context) {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 15),
           child: SizedBox(
             height: 100,
             width: 320,
@@ -202,27 +190,27 @@ Widget HomeScreenWidget(BuildContext context) {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(left: 5, right: 10),
+                    padding: const EdgeInsets.only(left: 5, right: 10),
                     child: Column(
                       children: [
-                        Container(
-                          height: 60,
-                          width: 60,
-                          decoration: const BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(8)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xFF40E547),
-                                    Color(0xFF40C2BA),
-                                  ])),
-                          child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                GoToRequest(context);
-                              },
+                        InkWell(
+                          onTap: () {
+                            GoToSettings(context);
+                          },
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            decoration: const BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8)),
+                                gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [
+                                      Color(0xFF40E547),
+                                      Color(0xFF40C2BA),
+                                    ])),
+                            child: Center(
                               child: Image.asset('assets/home/b$index.png'),
                             ),
                           ),

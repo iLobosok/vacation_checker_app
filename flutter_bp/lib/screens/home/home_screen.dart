@@ -4,14 +4,11 @@ import 'package:flutter_bp/bloc/news/bloc/news_bloc.dart';
 import 'package:flutter_bp/screens/home/home_screen_widget.dart';
 
 class MainScreen extends StatelessWidget {
-  MainScreen({Key? key}) : super(key: key);
-  int _currentIndex = 0;
-  final List _children = [];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        //onTap: OnTapped(context),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.house),
@@ -22,6 +19,7 @@ class MainScreen extends StatelessWidget {
             label: 'Settings',
           ),
         ],
+        
       ),
       body: Column(
         children: <Widget>[

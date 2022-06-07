@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/home/home_screen.dart';
 
-String dropdownvalue1 = 'select';
-String dropdownvalue2 = 'sick';
-String dropdownvalue3 = 'select';
-var items1 = [
-  'Sick',
-  'Day off',
-  'Holiday',
-];
-var items2 = [
-  'Sick',
-  'Day off',
-  'Holiday',
-];
-var items3 = [
-  'Sick',
-  'Day off',
-  'Holiday',
-];
-
 Widget RequestFormWidget(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
@@ -31,14 +12,14 @@ Widget RequestFormWidget(BuildContext context) {
               .push(MaterialPageRoute(builder: (context) => MainScreen()));
         },
         child: const Padding(
-          padding: const EdgeInsets.only(left: 3, top: 10),
+          padding: EdgeInsets.only(left: 10, top: 10),
           child: InkWell(
             child: Text(
               'Cancel',
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 17,
-                  fontWeight: FontWeight.bold),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
             ),
           ),
         ),
@@ -78,22 +59,65 @@ Widget RequestFormWidget(BuildContext context) {
                 alignment: Alignment.centerLeft,
                 child: Center(
                   child: SizedBox(
-                    height: 30,
-                    width: 300,
+                    height: 35,
+                    width: MediaQuery.of(context).size.width * 0.95,
                     child: Container(
                       decoration: BoxDecoration(
                           border: Border.all(
-                            color: Color.fromARGB(255, 172, 167, 167),
+                            color: const Color.fromARGB(255, 172, 167, 167),
                           ),
-                          borderRadius: BorderRadius.all(Radius.circular(8))),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(4))),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton(
+                          value: 'Select Counterparty',
+                          items: const [
+                            DropdownMenuItem(
+                                child: Text("Select Counterparty"),
+                                value: "Select Counterparty"),
+                            DropdownMenuItem(
+                              child: Text("Select Other"),
+                              value: "Select Other",
+                            )
+                          ],
+                          onChanged: (value) {},
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10, top: 10),
+                  child: Text(
+                    "Vessel",
+                    style: const TextStyle(color: Colors.grey, fontSize: 17),
+                  ),
+                ),
+              ),
+              Center(
+                child: SizedBox(
+                  height: 35,
+                  width: MediaQuery.of(context).size.width * 0.95,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 172, 167, 167),
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8))),
+                    child: DropdownButtonHideUnderline(
                       child: DropdownButton(
-                        value: "Tokyo",
-                        items: [
+                        value: "Select by Name or IMO",
+                        items: const [
                           DropdownMenuItem(
-                              child: Text("New York"), value: "New York"),
+                              child: Text("Select by Name or IMO"),
+                              value: "Select by Name or IMO"),
                           DropdownMenuItem(
-                            child: Text("Tokyo"),
-                            value: "Tokyo",
+                            child: Text("Select by other categories"),
+                            value: "Select by other categories",
                           )
                         ],
                         onChanged: (value) {},
@@ -102,46 +126,11 @@ Widget RequestFormWidget(BuildContext context) {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 10),
-                  child: const Text(
-                    "Vessel",
-                    style: TextStyle(color: Colors.grey, fontSize: 17),
-                  ),
-                ),
-              ),
-              Center(
-                child: SizedBox(
-                  height: 30,
-                  width: 300,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Color.fromARGB(255, 172, 167, 167),
-                        ),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
-                    child: DropdownButton(
-                      value: "Tokyo",
-                      items: [
-                        DropdownMenuItem(
-                            child: Text("New York"), value: "New York"),
-                        DropdownMenuItem(
-                          child: Text("Tokyo"),
-                          value: "Tokyo",
-                        )
-                      ],
-                      onChanged: (value) {},
-                    ),
-                  ),
-                ),
-              ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding: EdgeInsets.only(left: 10, top: 50),
-                  child: const Text(
+                  child: Text(
                     "Grade",
                     style: TextStyle(
                         color: Colors.black,
@@ -150,11 +139,11 @@ Widget RequestFormWidget(BuildContext context) {
                   ),
                 ),
               ),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
-                  padding: EdgeInsets.only(left: 10, top: 20),
-                  child: const Text(
+                  padding: EdgeInsets.only(left: 10, top: 15),
+                  child: Text(
                     "Grade",
                     style: TextStyle(color: Colors.grey, fontSize: 17),
                   ),
@@ -162,27 +151,31 @@ Widget RequestFormWidget(BuildContext context) {
               ),
               Center(
                 child: SizedBox(
-                  height: 30,
-                  width: 300,
+                  height: 35,
+                  width: MediaQuery.of(context).size.width * 0.95,
                   child: Container(
                     height: 50,
                     width: 270,
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Color.fromARGB(255, 172, 167, 167),
+                          color: const Color.fromARGB(255, 172, 167, 167),
                         ),
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
-                    child: DropdownButton(
-                      value: "Tokyo",
-                      items: [
-                        DropdownMenuItem(
-                            child: Text("New York"), value: "New York"),
-                        DropdownMenuItem(
-                          child: Text("Tokyo"),
-                          value: "Tokyo",
-                        )
-                      ],
-                      onChanged: (value) {},
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(8))),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        value: "Select by Name or IMO",
+                        items: const [
+                          DropdownMenuItem(
+                              child: Text("Select by Name or IMO"),
+                              value: "Select by Name or IMO"),
+                          DropdownMenuItem(
+                            child: Text("Select by other categories"),
+                            value: "Select by other categories",
+                          )
+                        ],
+                        onChanged: (value) {},
+                      ),
                     ),
                   ),
                 ),
@@ -190,10 +183,10 @@ Widget RequestFormWidget(BuildContext context) {
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 10, top: 20),
+                    padding: const EdgeInsets.only(left: 10, top: 10),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Quantity",
                           style: TextStyle(
                               color: Colors.grey,
@@ -201,14 +194,14 @@ Widget RequestFormWidget(BuildContext context) {
                               fontWeight: FontWeight.w400),
                         ),
                         Container(
-                          height: 50,
+                          height: 35,
                           width: 70,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color.fromARGB(255, 172, 167, 167),
+                                color: const Color.fromARGB(255, 172, 167, 167),
                               ),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(8))),
+                                  const BorderRadius.all(Radius.circular(4))),
                           child: TextFormField(
                             decoration: const InputDecoration(
                               enabledBorder: UnderlineInputBorder(
@@ -217,7 +210,7 @@ Widget RequestFormWidget(BuildContext context) {
                               focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.white),
                               ),
-                              border: UnderlineInputBorder(),
+                              border: InputBorder.none,
                               labelText: '',
                               labelStyle: TextStyle(color: Colors.white),
                             ),
@@ -226,16 +219,16 @@ Widget RequestFormWidget(BuildContext context) {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 10, top: 20),
+                    padding: const EdgeInsets.only(left: 10, top: 10),
                     child: Column(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(right: 220),
-                          child: const Text(
+                          child: Text(
                             "Price",
                             style: TextStyle(
                                 color: Colors.grey,
@@ -244,14 +237,14 @@ Widget RequestFormWidget(BuildContext context) {
                           ),
                         ),
                         Container(
-                          height: 50,
+                          height: 35,
                           width: 270,
                           decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color.fromARGB(255, 172, 167, 167),
+                                color: const Color.fromARGB(255, 172, 167, 167),
                               ),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(8))),
+                                  const BorderRadius.all(Radius.circular(4))),
                           child: TextFormField(
                             decoration: const InputDecoration(
                               enabledBorder: UnderlineInputBorder(
@@ -274,15 +267,15 @@ Widget RequestFormWidget(BuildContext context) {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             child: Container(
               height: 50,
               width: 370,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.green,
                   borderRadius: BorderRadius.all(Radius.circular(8))),
-              child: Center(
-                  child: const Text(
+              child: const Center(
+                  child: Text(
                 "Submit",
                 style: TextStyle(
                     color: Colors.white,
