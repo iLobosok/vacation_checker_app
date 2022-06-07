@@ -125,7 +125,31 @@ Widget HomeScreenWidget(BuildContext context) {
               itemCount: 4,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Padding(
+              return index == 3 ? Padding(
+                padding: const EdgeInsets.only(left: 5, right: 10),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: 60,
+                      width: 60,
+                      child: InkWell(
+                        onTap: () {
+                          GoToSettings(context);
+                        },
+                        child: Stack(
+                          children: [
+                            ShortcutItem2(context),
+                            Center(
+                              child: Image.asset('assets/home/a3.png'),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Text(name_list_second[3]),
+                  ],
+                ),
+              )  :  Padding(
                   padding: const EdgeInsets.only(left: 5, right: 10),
                   child: Column(
                     children: [

@@ -14,7 +14,7 @@ final name_list_first = [
 final name_list_second = [
   "Assign",
   "Search",
-  "Specvs",
+  "Spec",
   "Gifts",
 ];
 
