@@ -22,7 +22,7 @@ GoToRequest(BuildContext context) {
 
 GoToSettings(BuildContext context) {
   Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => const SettingsScreen()));
+      .push(MaterialPageRoute(builder: (context) => SettingsScreen()));
 }
 
 Widget HomeScreenWidget(BuildContext context) {
