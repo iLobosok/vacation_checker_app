@@ -37,7 +37,7 @@ Widget LoginWidgetForm(BuildContext context) {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => SettingsScreen(),
+                    builder: (context) =>  const HomeScreen(),
                   ),
                 );
               },

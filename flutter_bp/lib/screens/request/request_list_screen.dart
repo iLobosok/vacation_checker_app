@@ -53,11 +53,17 @@ Widget RequestListWidget(BuildContext context) {
     ),
     floatingActionButton: FloatingActionButton(
       onPressed: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => RequestFormWidget(context)));
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => RequestFormWidget(context),
+          ),
+        );
       },
       backgroundColor: Colors.green,
-      child: const Text('Add'),
+      child: const Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
     ),
   );
 }

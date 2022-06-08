@@ -21,80 +21,106 @@ final subtitles = [
   "Meet one of 100 women leading the fight against Angola's landmines with the backing of the HALO Trust and BP"
 ];
 
+void onTapCheckerScreen(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => const RequestScreen(),
+    ),
+  );
+}
+
 List<ShortCutWidget> shortcutList = [
   const ShortCutWidget(
     name: 'Completed Deals',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '0',
-    onTap: 'RequestListScreen()',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Marine',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '1',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Credit Check',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '2',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'My Details',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '3',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Assign Chain',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '4',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Search Deals',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '5',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Spec vs Cargo',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '6',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   ShortCutWidget(
     name: 'Gifts and Entertaiments',
+    textColor: const Color(0xFF738C99),
     background1: const Color(0xFF40E547).withOpacity(0.1),
     background2: const Color(0xFF40C2BA).withOpacity(0.1),
     icon: '7',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   ShortCutWidget(
     name: 'Unit Convers',
+    textColor: const Color(0xFF738C99),
     background1: const Color(0xFF40E547).withOpacity(0.1),
     background2: const Color(0xFF40C2BA).withOpacity(0.1),
     icon: '8',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
   const ShortCutWidget(
     name: 'Others',
+    textColor: Color(0xFF314149),
     background1: Color(0xFF40E547),
     background2: Color(0xFF40C2BA),
     icon: '9',
-    onTap: '',
+    onTap: onTapCheckerScreen,
   ),
 ];
 
 goToRequest(BuildContext context) {
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) => const RequestScreen(),
+    ),
+  );
+}
+
+_goToNewScreen(BuildContext context) {
   Navigator.of(context).push(
     MaterialPageRoute(
       builder: (context) => const RequestScreen(),
@@ -111,19 +137,21 @@ goToSettings(BuildContext context) {
 }
 
 class ShortCutWidget extends StatelessWidget {
-  const ShortCutWidget(
-      {Key? key,
-      required this.name,
-      required this.background1,
-      required this.background2,
-      required this.icon,
-      required this.onTap})
-      : super(key: key);
+  const ShortCutWidget({
+    Key? key,
+    required this.name,
+    required this.background1,
+    required this.background2,
+    required this.icon,
+    required this.onTap,
+    required this.textColor,
+  }) : super(key: key);
   final String name;
+  final Color textColor;
   final Color background1;
   final Color background2;
   final String icon;
-  final String onTap;
+  final void Function(BuildContext context) onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -131,11 +159,7 @@ class ShortCutWidget extends StatelessWidget {
       children: [
         InkWell(
           onTap: () {
-            // Navigator.of(context).push(
-            //   MaterialPageRoute(
-            //     builder: (context) => onTap,
-            //   ),
-            // );
+            onTap(context);
           },
           child: Container(
             height: 60,
@@ -156,7 +180,16 @@ class ShortCutWidget extends StatelessWidget {
             child: Image.asset('assets/home/$icon.png'),
           ),
         ),
-        Text(name),
+        Text(
+          name,
+          softWrap: true,
+          maxLines: 2,
+          style: TextStyle(
+            color: textColor,
+            fontSize: 11,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ],
     );
   }

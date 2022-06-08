@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/bloc/login/login_bloc.dart';
+import 'package:flutter_bp/bloc/navigation/cubit/navigation_cubit.dart';
 import 'package:flutter_bp/bloc/news/bloc/news_bloc.dart';
 import 'package:flutter_bp/bloc/request/bloc/request_bloc.dart';
 import 'package:flutter_bp/settings/settings.dart';
@@ -51,10 +52,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
-      home: const MyHomePage(),
+    return BlocProvider<NavigationCubit>(
+      create: (context) => NavigationCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: const MyHomePage(),
+      ),
     );
   }
 }
