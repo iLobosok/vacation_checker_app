@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bp/screens/login/login_form_screen.dart';
 import 'package:flutter_bp/screens/login/login_screen.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SettingsScreen extends StatelessWidget {
   bool isSwitched = false;
@@ -86,9 +88,9 @@ class SettingsScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 30,
                         width: 30,
-                        child: Image.asset(
-                          'assets/settings/faceid.png',
-                          color: const Color(0xFF314149),
+                        child: SvgPicture.asset(
+                          'assets/settings/faceid.svg',
+                          // color: const Color(0xFF314149),
                         ),
                       ),
                     ),
@@ -121,7 +123,7 @@ class SettingsScreen extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 53),
-                      child: Switch(
+                      child: CupertinoSwitch(
                         activeColor: Colors.pinkAccent,
                         onChanged: (value) {
                           print("VALUE : $value");
@@ -141,8 +143,8 @@ class SettingsScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 30,
                         width: 30,
-                        child: Image.asset(
-                          'assets/settings/support.png',
+                        child: SvgPicture.asset(
+                          'assets/settings/support.svg',
                           color: const Color(0xFF314149),
                         ),
                       ),
@@ -172,8 +174,8 @@ class SettingsScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 30,
                         width: 30,
-                        child: Image.asset(
-                          'assets/settings/about.png',
+                        child: SvgPicture.asset(
+                          'assets/settings/about.svg',
                           color: const Color(0xFF314149),
                         ),
                       ),
@@ -203,9 +205,9 @@ class SettingsScreen extends StatelessWidget {
                       child: SizedBox(
                         height: 30,
                         width: 30,
-                        child: Image.asset(
-                          'assets/settings/info.png',
-                          color: const Color(0xFF314149),
+                        child: SvgPicture.asset(
+                          'assets/settings/info.svg',
+                          // color: const Color(0xFF314149),
                         ),
                       ),
                     ),
@@ -242,9 +244,9 @@ class SettingsScreen extends StatelessWidget {
                         child: SizedBox(
                           height: 30,
                           width: 30,
-                          child: Image.asset(
-                            'assets/settings/signout.png',
-                            color: const Color(0xFFEC374A),
+                          child: SvgPicture.asset(
+                            'assets/settings/signout.svg',
+                            // color: const Color(0xFFEC374A),
                           ),
                         ),
                       ),

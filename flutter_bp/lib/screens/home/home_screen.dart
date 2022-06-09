@@ -24,7 +24,7 @@ class MainScreen extends State<HomeScreen> {
         builder: (context, state) {
           // ignore: unnecessary_new
           return BottomNavigationBar(
-              backgroundColor: panelbg,
+              // fixedColor: panelbg,
               selectedItemColor: greypanel,
               unselectedItemColor: unselected_panel_bg.withOpacity(0.8),
               currentIndex: state.index,
@@ -69,77 +69,77 @@ class MainScreen extends State<HomeScreen> {
           );
         },
       ),
-      body: Column(
-        children: <Widget>[
-          const Padding(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            const Padding(
+                padding: EdgeInsets.only(
+                  top: 43,
+                  right: 155,
+                ),
+                child: Text(
+                  'Hi Progen!',
+                  style: TextStyle(
+                    fontFamily: 'HelveticaNeueCyr',
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 40),
+                )),
+            const Padding(
               padding: EdgeInsets.only(
-                top: 43,
-                right: 155,
+                top: 20,
+                right: 290,
               ),
               child: Text(
-                'Hi Progen!',
+                'News',
                 style: TextStyle(
                   fontFamily: 'HelveticaNeueCyr',
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 40),
-              )),
-          const Padding(
-            padding: EdgeInsets.only(
-              top: 20,
-              right: 290,
+                    fontSize: 22),
+              ),
             ),
-            child: Text(
-              'News',
-              style: TextStyle(
-                fontFamily: 'HelveticaNeueCyr',
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22),
+            SizedBox(
+              height: 165,
+              child: BlocBuilder<NewsBloc, NewsState>(
+                builder: (context, state) {
+                  if (state is NewsLoading) {
+                    //immitate database get news
+                    Future.delayed(const Duration(seconds: 3), () {});
+                  }
+                  if (state is NewsLoaded) {
+                    return NewsWidget();
+                  } else {
+                    return const Text("Error load news");
+                  }
+                },
+              ),
             ),
-          ),
-          SizedBox(
-            height: 165,
-            child: BlocBuilder<NewsBloc, NewsState>(
-              builder: (context, state) {
-                if (state is NewsLoading) {
-                  //immitate database get news
-                  Future.delayed(const Duration(seconds: 3), () {});
-                }
-                if (state is NewsLoaded) {
-                  return NewsWidget();
-                } else {
-                  return const Text("Error load news");
-                }
-              },
+            const Padding(
+              padding: EdgeInsets.only(
+                top: 30,
+                right: 255,
+              ),
+              child: Text(
+                'Shortcuts',
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 22),
+              ),
             ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(
-              top: 30,
-              right: 240,
-            ),
-            child: Text(
-              'Shortcuts',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 22),
-            ),
-          ),
-          SizedBox(
-            height: 330,
-            width: MediaQuery.of(context).size.width * 1,
-            child: GridView.count(
-              primary: false,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 40,
-              crossAxisCount: 4,
-              children: shortcutList,
-            ),
-          ),
-        ],
+             GridView.count(
+               shrinkWrap: true,
+                  // primary: false,
+                  // padding: const EdgeInsets.all(20),
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 20,
+                  crossAxisCount: 4,
+                  children: shortcutList,
+                ),
+            
+          ],
+        ),
       ),
     );
   }

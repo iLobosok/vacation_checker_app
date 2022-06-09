@@ -120,7 +120,7 @@ goToRequest(BuildContext context) {
   );
 }
 
-_goToNewScreen(BuildContext context) {
+goToNewScreen(BuildContext context) {
   Navigator.of(context).push(
     MaterialPageRoute(
       builder: (context) => const RequestScreen(),
@@ -156,6 +156,7 @@ class ShortCutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      // mainAxisSize: MainAxisSize.max,
       children: [
         InkWell(
           onTap: () {
@@ -180,14 +181,20 @@ class ShortCutWidget extends StatelessWidget {
             child: Image.asset('assets/home/$icon.png'),
           ),
         ),
-        Text(
-          name,
-          softWrap: true,
-          maxLines: 2,
-          style: TextStyle(
-            color: textColor,
-            fontSize: 11,
-            fontWeight: FontWeight.w500,
+        const SizedBox(
+          height: 5,
+        ),
+        Flexible(
+          child: Text(
+            name,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: TextStyle(
+              color: textColor,
+              fontSize: 11,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
       ],

@@ -71,11 +71,18 @@ Widget RequestFormWidget(BuildContext context) {
                             borderRadius:
                                 const BorderRadius.all(Radius.circular(4))),
                         child: DropdownButtonHideUnderline(
-                          child: DropdownButton(
+                          child: Padding(
+                        padding: EdgeInsets.only(left: 10,),
+                        child:DropdownButton(
                             value: 'Select Counterparty',
+                            style: TextStyle(
+                              color: Color(0xFF738C99CC).withOpacity(0.8),
+                            ),
                             items: const [
                               DropdownMenuItem(
-                                  child: Text("Select Counterparty"),
+                                  child: Text(
+                                    "Select Counterparty",
+                                  ),
                                   value: "Select Counterparty"),
                               DropdownMenuItem(
                                 child: Text("Select Other"),
@@ -83,6 +90,7 @@ Widget RequestFormWidget(BuildContext context) {
                               )
                             ],
                             onChanged: (value) {},
+                          ),
                           ),
                         ),
                       ),
@@ -112,18 +120,24 @@ Widget RequestFormWidget(BuildContext context) {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(8))),
                     child: DropdownButtonHideUnderline(
-                      child: DropdownButton(
-                        value: "Select by Name or IMO",
-                        items: const [
-                          DropdownMenuItem(
-                              child: Text("Select by Name or IMO"),
-                              value: "Select by Name or IMO"),
-                          DropdownMenuItem(
-                            child: Text("Select by other categories"),
-                            value: "Select by other categories",
-                          )
-                        ],
-                        onChanged: (value) {},
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 10,),
+                        child: DropdownButton(
+                          value: 'Select by Name or IMO',
+                          style: TextStyle(
+                            color: const Color(0xFF738C99CC).withOpacity(0.8),
+                          ),
+                          items: const [
+                            DropdownMenuItem(
+                                child: Text("Select by Name or IMO"),
+                                value: "Select by Name or IMO"),
+                            DropdownMenuItem(
+                              child: Text("Select by other categories"),
+                              value: "Select by other categories",
+                            )
+                          ],
+                          onChanged: (value) {},
+                        ),
                       ),
                     ),
                   ),
@@ -186,12 +200,15 @@ Widget RequestFormWidget(BuildContext context) {
                     padding: const EdgeInsets.only(left: 20, top: 16),
                     child: Column(
                       children: [
-                        const Text(
-                          "Quantity",
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 35,),
+                          child:  Text(
+                            "Quantity",
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
                         Container(
                           height: 34,
@@ -220,14 +237,14 @@ Widget RequestFormWidget(BuildContext context) {
                     ),
                   ),
                   const SizedBox(
-                    width: 20,
+                    width: 8,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 8, top: 16),
+                    padding: const EdgeInsets.only(left: 20,top: 16),
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(right: 220),
+                          padding: EdgeInsets.only(right: 205,),
                           child: Text(
                             "Price",
                             style: TextStyle(
